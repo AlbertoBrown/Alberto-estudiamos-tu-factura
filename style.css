@@ -110,4 +110,84 @@ h2{font-size:clamp(1.3rem, 3.5vw + .5rem, 2rem);margin:0 0 14px}
   .about-grid{grid-template-columns:repeat(3,1fr);gap:18px}
   .step-grid{grid-template-columns:repeat(3,1fr);gap:18px}
   .footer-content{grid-template-columns:1fr auto;align-items:center}
+/* ===== Steps (timeline) – mobile-first ===== */
+.steps { padding: 36px 0 }
+.steps h2 { margin-bottom: 18px }
+
+.steps-list {
+  display: grid;
+  gap: 14px;
+  position: relative;
+  padding-left: 6px; /* riel */
+}
+
+/* Riel vertical del timeline */
+.steps-list::before {
+  content:"";
+  position: absolute;
+  left: 22px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(28,100,242,.25), rgba(28,100,242,.05));
+}
+
+/* Tarjeta paso */
+.step {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  background: var(--surface);
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+/* Medalla numerada */
+.step-badge {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-weight: 800; color: var(--text);
+  background: radial-gradient(120% 120% at 30% 20%, #fff 0%, #dbeafe 55%, #bfdbfe 100%);
+  box-shadow: 0 8px 18px -12px rgba(28,100,242,.45);
+  z-index: 1;
+}
+
+/* Conector del riel a la tarjeta */
+.step::before {
+  content:"";
+  position:absolute;
+  left: 22px;
+  top: 44px; /* justo bajo la medalla */
+  width: 2px;
+  height: calc(100% - 44px);
+  background: linear-gradient(180deg, rgba(28,100,242,.18), rgba(28,100,242,0));
+}
+.step:last-child::before { display:none; }
+
+.step-body h3 {
+  margin: 2px 0 6px;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+.step-body p { margin: 0; color: var(--muted); }
+
+/* CTA bajo los pasos */
+.steps-cta {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* Mejoras en pantallas medias/grandes */
+@media (min-width: 960px){
+  .steps { padding: 64px 0 }
+  .steps-list { gap: 18px; padding-left: 10px }
+  .step {
+    grid-template-columns: 52px 1fr;
+    padding: 20px; border-radius: 18px;
+  }
+  .step-badge { width: 52px; height: 52px; font-size: 1.05rem }
+  .steps-cta { grid-auto-flow: column; justify-content: start }
 }
