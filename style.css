@@ -35,9 +35,7 @@ img{display:block;max-width:100%;height:auto;border-radius:var(--r-lg)}
   background:rgba(247,248,251,.92); backdrop-filter:saturate(120%) blur(10px);
   border-bottom:1px solid rgba(148,163,184,.18);
 }
-main {
-  padding-top: calc(var(--header-height) + 8px);
-}
+
 .header-content{display:flex;align-items:center;justify-content:space-between;padding:10px 0;gap:10px}
 .brand{display:flex;align-items:center;gap:20px}
 .brand-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
@@ -194,6 +192,7 @@ h2{font-size:clamp(1.3rem, 3.5vw + .5rem, 2rem);margin:0 0 14px}
   .step-badge { width: 52px; height: 52px; font-size: 1.05rem }
   .steps-cta { grid-auto-flow: column; justify-content: start }
 }
+
 
 
 
