@@ -31,7 +31,7 @@ img{display:block;max-width:100%;height:auto;border-radius:var(--r-lg)}
 
 /* Header compacto y fijo */
 .site-header{
-  position:fixed; top:0; inset-inline:0; z-index:1000;
+  position: sticky; top: 0; z-index: 1000;
   background:rgba(247,248,251,.92); backdrop-filter:saturate(120%) blur(10px);
   border-bottom:1px solid rgba(148,163,184,.18);
 }
@@ -194,5 +194,6 @@ h2{font-size:clamp(1.3rem, 3.5vw + .5rem, 2rem);margin:0 0 14px}
   .step-badge { width: 52px; height: 52px; font-size: 1.05rem }
   .steps-cta { grid-auto-flow: column; justify-content: start }
 }
+
 
 
