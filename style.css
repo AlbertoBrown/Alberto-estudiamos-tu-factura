@@ -181,6 +181,11 @@ h2{font-size:clamp(1.3rem, 3.5vw + .5rem, 2rem);margin:0 0 14px}
   margin-top: 18px;
 }
 
+@media (max-width: 390px){
+  .btn{ padding: 10px 14px; font-size: .95rem; }
+  :root{ --header-height: 64px; } /* si usas la opción A */
+}
+
 /* Mejoras en pantallas medias/grandes */
 @media (min-width: 960px){
   .steps { padding: 64px 0 }
@@ -192,6 +197,7 @@ h2{font-size:clamp(1.3rem, 3.5vw + .5rem, 2rem);margin:0 0 14px}
   .step-badge { width: 52px; height: 52px; font-size: 1.05rem }
   .steps-cta { grid-auto-flow: column; justify-content: start }
 }
+
 
 
 
