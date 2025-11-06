@@ -51,15 +51,16 @@ body, html {
 
 /* Caja central */
 .glass {
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);         /* más transparente */
+  backdrop-filter: blur(15px) saturate(160%);    /* efecto cristal */
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
   border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);    /* borde tenue tipo glass */
   padding: 40px 30px;
   max-width: 560px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);   /* sombra más suave */
 }
 
 /* Texto */
