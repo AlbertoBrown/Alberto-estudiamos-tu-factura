@@ -1,0 +1,165 @@
+:root {
+  --azul: #0033FF;
+  --verde-wsp1: #25D366;
+  --verde-wsp2: #1EBE5C;
+  --azul-fb1: #1877F2;
+  --azul-fb2: #0D65D9;
+}
+
+/* Base general */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Fondo a pantalla completa */
+.hero {
+  background-image: url('img/ImagenFondo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+}
+
+/* Logo arriba a la derecha */
+.logo-top {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 2;
+}
+
+.logo-top img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo-top img:hover {
+  transform: scale(1.05);
+}
+
+/* Caja central */
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* Texto */
+.glass h2 {
+  color: var(--azul);
+  font-weight: 800;
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.glass p {
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+/* Botones */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+.cta:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+.cta img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Colores */
+.wsp {
+  background: linear-gradient(90deg, var(--verde-wsp1), var(--verde-wsp2));
+}
+
+.web {
+  background: linear-gradient(90deg, #0033FF, #0066FF);
+}
+
+.ig {
+  background: linear-gradient(90deg, #F58529, #DD2A7B, #8134AF);
+}
+
+.fb {
+  background: linear-gradient(90deg, var(--azul-fb1), var(--azul-fb2));
+}
+
+/* 📱 Versión móvil */
+@media (max-width: 600px) {
+  .hero {
+    padding: 10px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .glass {
+    padding: 25px 20px;
+    border-radius: 16px;
+  }
+
+  .glass h2 {
+    font-size: 20px;
+    line-height: 1.3em;
+  }
+
+  .glass p {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .cta {
+    font-size: 14px;
+    padding: 12px 10px;
+    gap: 8px;
+  }
+
+  .cta img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .logo-top img {
+    width: 120px;
+    right: 15px;
+  }
+}
