@@ -22,16 +22,40 @@ html, body {
    SECCIÓN PRINCIPAL
 =========================== */
 .hero {
-  background-image: url('img/imagenfondo.png'); /* usa .jpg o .png según tu archivo */
+  background-image: url('img/imagenfondo.png'); /* cambia a .png si aplica */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  min-height: 100dvh; /* 100% del alto visible, compatible móvil */
+  /* Centrado perfecto en todos los dispositivos */
+  min-height: 100svh;
+  height: 100svh;
   display: grid;
   place-items: center;
+
+  /* Márgenes seguros (iPhone notch, etc.) */
+  padding-top: max(16px, env(safe-area-inset-top) + 12px);
+  padding-bottom: max(16px, env(safe-area-inset-bottom) + 12px);
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+
   position: relative;
-  padding: clamp(16px, 2.5vw, 32px);
+}
+
+/* Fallback para navegadores sin soporte svh */
+@supports not (height: 100svh) {
+  .hero {
+    min-height: 100vh;
+    height: 100vh;
+  }
+}
+
+/* Fix específico Safari iOS */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+  }
 }
 
 /* ===========================
@@ -39,13 +63,13 @@ html, body {
 =========================== */
 .logo-top {
   position: absolute;
-  top: clamp(16px, 2vw, 28px);
-  right: clamp(16px, 2vw, 32px);
+  top: calc(env(safe-area-inset-top) + 16px);
+  right: calc(env(safe-area-inset-right) + 16px);
   z-index: 10;
 }
 
 .logo-top img {
-  width: clamp(120px, 16vw, 160px);
+  width: clamp(110px, 15vw, 160px);
   height: auto;
   object-fit: contain;
   transition: transform 0.2s ease;
@@ -56,18 +80,18 @@ html, body {
 }
 
 /* ===========================
-   CAJA SEMITRANSPARENTE (GLASS)
+   CAJA SEMITRANSPARENTE
 =========================== */
 .glass {
-  background: rgba(255, 255, 255, 0.88); /* menos transparente */
+  background: rgba(255, 255, 255, 0.90); /* más opaca */
   backdrop-filter: blur(8px) saturate(130%);
   -webkit-backdrop-filter: blur(8px) saturate(130%);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  padding: clamp(28px, 3vw, 40px) clamp(20px, 3vw, 30px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+  padding: clamp(26px, 3vw, 40px) clamp(18px, 3vw, 30px);
   width: min(560px, 95%);
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
   margin: 0 auto;
 }
 
@@ -142,15 +166,9 @@ html, body {
    RESPONSIVE (MÓVIL)
 =========================== */
 @media (max-width: 600px) {
-  .hero {
-    padding: 12px;
-    min-height: 100dvh;
-  }
-
   .glass {
-    padding: 25px 20px;
     border-radius: 16px;
-    width: 100%;
+    padding: 25px 20px;
   }
 
   .glass h2 {
